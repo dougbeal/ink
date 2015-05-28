@@ -1,5 +1,17 @@
 # Changelog
 
+### 1.1.4 (2015-05-18)
+- Fix: Cache writes no longer trigger Jekyll watch.
+- Fix: Cache writes happen after site builds.
+
+### 1.1.3 (2015-05-17)
+- Fix: Ink assets filters files which shouldn't be included like .hidden_file, emacs.backup~, etc
+
+### 1.1.2 (2015-05-12)
+- Use Jekyll Hooks if you got 'em.
+- Now supporting Jekyll 2 & 3
+- In Jekyll 3 Coffeescript is optional - Added a request to install the gem if a plugin uses it but it is not present.
+
 ### 1.1.1 (2015-05-11)
 - Minor: Gemspec dependency updates.
 
