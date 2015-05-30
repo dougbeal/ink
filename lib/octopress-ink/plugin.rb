@@ -481,16 +481,25 @@ module Octopress
 
       def add_javascripts
         find_assets(@javascripts_dir).each do |asset|
-          if asset.end_with?('js')
-            @js << Assets::Javascript.new(self, @javascripts_dir, asset)
-          elsif asset.end_with?('coffee')
-            @coffee << Assets::Coffeescript.new(self, @javascripts_dir, asset)
-          end
+          add_javascript_asset asset
+        end
+      end
+
+      def add_javascript_asset(directory=@javascripts_dir, asset)
+        if asset.end_with?('js')
+          @js << Assets::Javascript.new(self, directory, asset)
+        elsif asset.end_with?('coffee')
+          @coffee << Assets::Coffeescript.new(self, directory, asset)
         end
       end
 
       def add_fonts
-        @fonts = add_new_assets(@fonts_dir, Assets::Asset)
+        add_font_assets(@fonts_dir)
+
+      end
+
+      def add_font_assets(directory)
+        @fonts += add_new_assets(directory, Assets::Asset)
       end
 
       def add_images
